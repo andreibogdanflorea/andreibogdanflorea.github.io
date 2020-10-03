@@ -3,9 +3,12 @@ layout: archive
 permalink: /portfolio/
 title: "My Portfolio"
 author_profile: true
+classes: wide
+excerpt: "Here you can find a showcase of my projects and my programming abilities"
 header:
-  image: "assets/images/projects.jpg"
-  image_description: "Here you can find a showcase of my projects and my programming abilities"
+  overlay_image: "assets/images/projects.jpg"
+  overlay_filter: 0.5
+
   caption: "Photo credit: [**Unsplash**](https://unsplash.com/photos/OqtafYT5kTw)"
 ---
 
