@@ -16,7 +16,7 @@ minimal_mistakes_skin    : "mint" # "air", "aqua", "contrast", "dark", "dirt", "
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Andrei-Bogdan Florea"
+title                    : "Computer Science Portfolio"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "Andrei-Bogdan Florea"
@@ -97,7 +97,7 @@ author:
   avatar           : "assets/images/profile.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "Computer Science Enthusiast"
   location         : "Romania"
-  email            :
+  email            : andreiflorea02@gmail.com
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
