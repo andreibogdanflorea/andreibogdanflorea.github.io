@@ -128,7 +128,7 @@
 
   img {
     max-width: 150px;
-    border-radius: 100%;
+    border-radius: 99%;
 
     @include breakpoint($large) {
       padding: 5px;
