@@ -11,10 +11,8 @@ header:
   caption: "Photo credit: [**Unsplash**](https://unsplash.com/photos/OqtafYT5kTw)"
 ---
 
-<ul>
-  {% for post in site.posts %}
-    <li>
-      <a href="{{ post.url }}">{{ post.title }}</a>
-    </li>
-  {% endfor %}
-</ul>
+{% for post in site.posts %}
+    <img src=post.header.overlay_image alt="Oops, there was an image here">
+    <a href="{{ post.url }}">{{ post.title }}</a>
+    {{ post.excerpt }}
+{% endfor %}
