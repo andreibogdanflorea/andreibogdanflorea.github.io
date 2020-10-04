@@ -11,8 +11,18 @@ header:
   caption: "Photo credit: [**Unsplash**](https://unsplash.com/photos/OqtafYT5kTw)"
 ---
 
-{% for post in site.posts %}
-    <img src={{ post.header.overlay_image }} alt="Oops, there was an image here">
-    <a href="{{ post.url }}">{{ post.title }}</a>
-    {{ post.excerpt }}
-{% endfor %}
+
+{% if paginator %}
+  {% assign posts = paginator.posts %}
+{% else %}
+  {% assign posts = site.posts %}
+{% endif %}
+
+{% assign entries_layout = page.entries_layout | default: 'list' %}
+<div class="entries-{{ entries_layout }}">
+  {% for post in posts %}
+    {% include archive-single.html type=entries_layout %}
+  {% endfor %}
+</div>
+
+{% include paginator.html %}
