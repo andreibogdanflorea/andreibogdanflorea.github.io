@@ -12,7 +12,7 @@ header:
 ---
 
 {% for post in site.posts %}
-    <img src=post.header.overlay_image alt="Oops, there was an image here">
+    <img src={{ post.header.overlay_image }} alt="Oops, there was an image here">
     <a href="{{ post.url }}">{{ post.title }}</a>
     {{ post.excerpt }}
 {% endfor %}
