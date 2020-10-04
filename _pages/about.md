@@ -12,14 +12,11 @@ header:
 
 I am currently a Computer Science student at the Polytechnic University of Bucharest.
 
-I am passionate about programming and software development, as well as about about
-maths and data science.
-
-I have been participating and finding success in programming and maths competitions
-ever since I was in middle school.
+My passion for software development and data science has its roots in middle school,
+when I started participating and finding success in programming and maths competitions.
 
 I like to think that I am a fast learner, keen on embracing anything new in my life,
-be it a new algorithm, a new concept, or even a new hobby.
+whether it is a new algorithm, a new concept, or even a new hobby.
 
 # About this website
 
