@@ -93,15 +93,14 @@
   img {
     width: 100%;
   }
-}
-
-.archive__item-teaser-text{
-  position: absolute;
-  margin: 0 auto;
-  left: 0;
-  text-align: center;
-  top: 60%; /* Adjust this value to move the positioned div up and down */
-  width: 60%; /* Set the width of the positioned div */
+  text {
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    text-align: center;
+    top: 60%; /* Adjust this value to move the positioned div up and down */
+    width: 60%; /* Set the width of the positioned div */
+  }
 }
 
 .archive__item-caption {
