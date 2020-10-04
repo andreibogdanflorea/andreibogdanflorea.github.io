@@ -15,7 +15,7 @@ I am currently a Computer Science student at the Polytechnic University of Bucha
 My passion for software development and data science has its roots in middle school,
 when I started participating and finding success in programming and maths competitions.
 
-I like to think that I am a fast learner, keen on embracing anything new in my life,
+I consider myself as being a fast learner, keen on embracing anything new in my life,
 whether it is a new algorithm, a new concept, or even a new hobby.
 
 # About this website
