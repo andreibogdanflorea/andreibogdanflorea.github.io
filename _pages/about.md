@@ -1,7 +1,6 @@
 ---
 title: "About"
 permalink: /about/
-classes: wide
 excerpt: "Here you can find information about myself, my background and this website"
 header:
   overlay_image: "/assets/images/about.jpg"
