@@ -1,5 +1,5 @@
 ---
-title: "Résumé"
+title: "Resume"
 permalink: /resume/
 ---
 <object data="https://andreibogdanflorea.github.io/assets/resume.pdf" type="application/pdf" width="100%" height="100%">
