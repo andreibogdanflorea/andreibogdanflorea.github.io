@@ -1,6 +1,6 @@
 ---
 title: "Résumé"
-permalink: /resume/
+permalink: /assets/resume.pdf/
 ---
 <object data="https://andreibogdanflorea.github.io/assets/resume.pdf" type="application/pdf" width="100%" height="100%">
     <embed src="https://andreibogdanflorea.github.io/assets/resume.pdf">
