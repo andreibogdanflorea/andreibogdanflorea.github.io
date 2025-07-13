@@ -12,6 +12,7 @@ design:
 # Page sections
 sections:
   - block: biography
+    id: biography
     content:
       username: admin
       # Show a call-to-action button under your biography? (optional)
@@ -26,6 +27,7 @@ sections:
         # Customize the style of your biography text
         style: 'text-align: justify; font-size: 0.8em;'
   - block: experience
+    id: experience
     content:
       username: admin
     design:
@@ -33,11 +35,13 @@ sections:
       date_format: 'January 2006'
       # Education or Experience section first?
       is_education_first: false
-  - block: skills
-    content:
-      title: Technical Skills
-      username: admin
+  # - block: skills
+  #   id: skills
+  #   content:
+  #     title: Technical Skills
+  #     username: admin
   - block: awards
+    id: awards
     content:
       title: Awards
       username: admin
