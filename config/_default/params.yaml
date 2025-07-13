@@ -17,7 +17,7 @@ marketing:
     description: 'A highly-customizable Hugo résumé theme powered by Hugo Blox Builder.'
     twitter: 'GetResearchDev'
   analytics:
-    google_analytics: ''
+    google_analytics: 'G-JNWWT60JWP'
     baidu_tongji: ''
     plausible: ''
     fathom: ''
@@ -34,13 +34,13 @@ header:
 
 # Site footer
 footer:
-  copyright:
-    notice: '© {year} Me. This work is licensed under {license}'
-    license:
-      enable: true
-      allow_derivatives: false
-      share_alike: true
-      allow_commercial: false
+  # copyright:
+  #   notice: '© {year} Me. This work is licensed under {license}'
+  #   license:
+  #     enable: true
+  #     allow_derivatives: false
+  #     share_alike: true
+  #     allow_commercial: false
 
 # Localization
 locale:

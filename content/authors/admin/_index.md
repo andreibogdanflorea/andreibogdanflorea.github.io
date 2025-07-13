@@ -97,21 +97,38 @@ work:
 
 # Skills
 # Add your own SVG icons to `assets/media/icons/`
-# skills:
-#   - name: Technical Skills
-#     items:
-#       - name: Python
-#         description: ''
-#         percent: 80
-#         icon: devicon/python
-#       - name: RStudio
-#         description: ''
-#         percent: 100
-#         icon: devicon/rstudio
-#       - name: PyTorch
-#         description: ''
-#         percent: 40
-#         icon: devicon/pytorch
+skills:
+  - name: Technical Skills
+    items:
+      - name: Python
+        description: ''
+        percent: 90
+        icon: devicon/python
+      - name: PyTorch
+        description: ''
+        percent: 80
+        icon: devicon/pytorch
+      - name: Tensorflow
+        description: ''
+        percent: 70
+        icon: devicon/tensorflow
+      - name: C
+        description: ''
+        percent: 80
+        icon: devicon/c
+      - name: C++
+        description: ''
+        percent: 60
+      - name: Java
+        description: ''
+        percent: 60
+      - name: Haskell
+        description: ''
+        percent: 40
+      - name: Prolog
+        description: ''
+        percent: 40
+      
   # - name: Hobbies
   #   color: '#eeac02'
   #   color_border: '#f0bf23'
