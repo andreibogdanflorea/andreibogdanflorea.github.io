@@ -2,7 +2,7 @@
 const { date } = Astro.props
 
 // Split the date at the "-" and trim whitespace
-const dateParts = date.split('-').map(part => part.trim())
+const dateParts = date.split('-').map((part: string) => part.trim())
 ---
 
 <div class="timeline-item relative timeline-item-stagger">

@@ -1,12 +1,14 @@
 ---
+import type { Skill } from '../types'
+
 const { title, skills } = Astro.props
 ---
 
 <div class="skill-category skill-animation-group">
   <h3 class="skill-category-title">{title}</h3>
   <div class="grid gap-6 w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
-    {skills.map((skill, index) => (
-  <div class="skill-card bg-background border border-border p-5 rounded-xl shadow-md w-full relative skill-fade-in" key={skill.name} style={`transition-delay: ${index * 100}ms`}>
+    {(skills as Skill[]).map((skill: Skill, index: number) => (
+  <div class="skill-card bg-background border border-border p-5 rounded-xl shadow-md w-full relative skill-fade-in" style={`transition-delay: ${index * 100}ms`}>
     {skill.type === 'devicon' ? (
       <i class={`${skill.icon} skill-icon`} aria-hidden="true" style="color: hsl(var(--primary))"></i>
     ) : skill.type === 'material' ? (

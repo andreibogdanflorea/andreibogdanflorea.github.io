@@ -22,3 +22,10 @@ export type SiteMeta = {
 	ogImage?: string | undefined
 	articleDate?: string | undefined
 }
+
+export type Skill = {
+	name: string
+	level: number
+	icon: string
+	type: 'devicon' | 'material'
+}
