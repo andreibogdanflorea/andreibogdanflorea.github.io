@@ -1,0 +1,21 @@
+---
+import { cn } from '@/utils'
+
+const { class: className, title, id } = Astro.props
+---
+
+<section
+  id={id}
+  class={cn(
+    className,
+    'flex flex-col items-center gap-y-6 px-4 md:px-0 max-w-4xl mx-auto'
+  )}
+>
+  <div class="w-full border-t border-border pt-5"></div>
+  <div class="text-2xl text-center md:text-3xl font-semibold w-full">
+    <h2>{title}</h2>
+  </div>
+  <div class="flex flex-col gap-y-4 w-full text-base md:text-lg leading-relaxed">
+    <slot />
+  </div>
+</section>

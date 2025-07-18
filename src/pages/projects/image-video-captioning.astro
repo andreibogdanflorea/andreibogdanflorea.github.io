@@ -1,0 +1,33 @@
+---
+import ProjectLayout from '@/layouts/ProjectLayout.astro'
+---
+
+<ProjectLayout
+	title='Image and Video Captioning'
+	description='University Project on Image and Video Captioning using Deep Learning'
+	imagePath='/src/assets/image_captioning.png'
+	technologies={['TensorFlow', 'Python', 'Computer Vision', 'NLP', 'Deep Learning', 'Transformers', 'CNNs', 'RNNs']}
+>
+	<h2>Project Overview</h2>
+	<p>
+		I worked on this project during my participation in the Artificial Intelligence and Multi-Agent Systems Summer School at the AI-MAS Laboratory, University Politehnica of Bucharest.
+        The focus was on improving the existing model for image and video captioning, through curriculum learning.
+	</p>
+
+	<h2>Key Features</h2>
+	<ul>
+		<li>Exploring the use of different learning strategies that use curriculum learning</li>
+        <li>Increasing difficulty through: caption length, syntactic structure, vocabulary difficulty</li>
+		<li>Evaluating comprehensively on standard datasets (Flickr8k, MSVD)</li>
+	</ul>
+
+	<h2>Results</h2>
+	<p>
+		The implemented models achieved competitive performance on standard benchmarks, with particular improvements in BLEU scores on the Flickr8k dataset. However, as a result of training on simpler data for longer, the predicted captions were more generic and less descriptive.
+	</p>
+
+	<h2>Learning Outcomes</h2>
+	<p>
+		This project provided valuable hands-on experience with cutting-edge deep learning research, combining computer vision and natural language processing. It enhanced my understanding of both fields.
+	</p>
+</ProjectLayout>

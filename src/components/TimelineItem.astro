@@ -1,0 +1,36 @@
+---
+const { date } = Astro.props
+
+// Split the date at the "-" and trim whitespace
+const dateParts = date.split('-').map(part => part.trim())
+---
+
+<div class="timeline-item relative timeline-item-stagger">
+<!-- Date box positioned to center on the timeline line -->
+<style>
+    .timeline-date-box {
+        min-width: 6rem; /* Reduced width for better mobile layout */
+        box-sizing: border-box;
+    }
+</style>
+<div class="timeline-date-box absolute left-4 md:left-6 top-3 transform -translate-x-1/2 z-20 timeline-item-element">
+    <div class="bg-primary text-primary-foreground px-2 py-1 md:px-3 md:py-1.5 rounded-xl text-xs md:text-sm font-medium text-center min-w-max shadow-sm">
+        <!-- Mobile: two lines, Desktop: single line -->
+        <div class="block md:hidden">
+            <div>
+                {dateParts[0]}
+                {dateParts[1] && ' -'}
+            </div>
+            {dateParts[1] && <div>{dateParts[1]}</div>}
+        </div>
+        <div class="hidden md:block">
+            {dateParts[0]}{dateParts[1] && ` - ${dateParts[1]}`}
+        </div>
+    </div>
+</div>
+  
+  <!-- Content section with proper left margin to avoid overlap with date box -->
+<div class="ml-12 md:ml-16 pt-16 sm:pt-14 md:pt-[3.2rem] timeline-item-element">
+    <slot />
+</div>
+</div>

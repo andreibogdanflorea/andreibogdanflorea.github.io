@@ -1,0 +1,41 @@
+---
+import ProjectLayout from '@/layouts/ProjectLayout.astro'
+---
+
+<ProjectLayout
+	title='Face Components Segmentation Using Generated Facial Images'
+	description='Bachelor&apos;s Thesis Project on Face Components Segmentation Using Generated Facial Images'
+	imagePath='/src/assets/bachelor_thesis_image.png'
+	githubUrl='https://github.com/andreibogdanflorea/stylegan2-annotations'
+	technologies={['PyTorch', 'Python', 'GANs', 'Computer Vision', 'Face Analysis', 'Deep Learning', 'Segmentation']}
+>
+	<h2>Project Overview</h2>
+	<p>
+		This project was developed as part of my Bachelor's thesis at University Politehnica of Bucharest, with the goal of showing how GANs can be used to create entire datasets (consisting of images and annotations), with controllable features.
+	</p>
+    <p>
+        To showcase the potential of the framework, I focused on facial component segmentation, where the task is to segment different parts of the face (eyes, nose, mouth, etc.) in images.
+        The project demonstrates how to automatically obtain high-quality pixel-wise labels for the generated faces, while also controlling for the age and gender of the generated person. 
+    </p>
+
+	<h2>Key Features</h2>
+	<ul>
+		<li>Using StyleGAN2 for high-quality synthetic face generation</li>
+		<li>Exploiting very few manual annoatations (< 20) of synthetic images, to train a separate branch for predicting segmentation masks</li>
+        <li>Enabling the control of age and gender of the generated faces</li>
+	</ul>
+
+	<h2>Results</h2>
+	<p>
+		The approach significantly outperforms other automatic annotation methods, achieving high segmentation accuracy on the generated faces.
+	</p>
+    <p>
+        A synthetic dataset generated through this method improved the performance of a facial components segmentation model, demonstrating the effectiveness of using generated data for training deep learning models in computer vision tasks.
+    </p>
+
+	<h2>Impact</h2>
+	<p>
+		This thesis shows a method for easily generating synthetic images alongside high-quality annotations, doing so in a controllable manner.
+        This is a general framework that can be applied to various domains, not just facial analysis, in the hopes that synthetic data will improve the performance of models trained on it.
+ 	</p>
+</ProjectLayout>

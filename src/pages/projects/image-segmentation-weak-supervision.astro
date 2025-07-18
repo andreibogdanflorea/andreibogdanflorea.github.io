@@ -1,0 +1,40 @@
+---
+import ProjectLayout from '@/layouts/ProjectLayout.astro'
+---
+
+<ProjectLayout
+	title='Image Segmentation with Weak Supervision'
+	description='Master&apos;s Thesis Project on Image Segmentation with Weak Supervision'
+	imagePath='/src/assets/master_thesis_image.png'
+	technologies={['PyTorch', 'Python', 'Computer Vision', 'Deep Learning', 'Image Segmentation', 'Weak Supervision', 'Neuro-symbolic AI', "Segment Anything"]}
+>
+	<h2>Project Overview</h2>
+	<p>
+		This project was developed as part of my Master's thesis at KU Leuven, focusing on image segmentation using weak supervision techniques.
+    </p>
+    <p>
+    The goal was to develop a unified framework for weakly supervised semantic segmentation, leveraging various forms of weak annotations such as scribbles, and bounding boxes, or even other background knowledge expressed as first-order logic formulas.
+	</p>
+
+	<h2>Key Features</h2>
+	<ul>
+		<li>Leverages the performance of the Segment Anything Model</li>
+		<li>Unifies learning, exploiting any type of weak labels as well as other prior knowledge, expressable as first-order logic formulas</li>
+		<li>Achieved state-of-the-art results on Pascal VOC 2012 and LGG segmentation</li>
+	</ul>
+
+    <h2>Results</h2>
+	<p>
+		The proposed method achieved state-of-the-art performance on the benchmarking dataset Pascal VOC 2012, as well as in a more practical scenario - in medical image segmentation,
+    where the method easily extends to segmenting low-grade gliomas in brain MRI scans.
+	</p>
+
+    <h2>Impact</h2>
+	<p>
+		The novely of this thesis is the application of logic-based reasoning to the weakly supervised segmentation task.
+        Additionally, it is the first unified framework, supporting learning from various weak annotations and background knowledge.
+	</p>
+    <p>
+        The research contributes to the field of computer vision by demonstrating how weak supervision can significantly reduce annotation requirements while maintaining high segmentation accuracy. This approach has applications in various domains, including medical imaging, where annotated data is often scarce and expensive to obtain.
+    </p>
+</ProjectLayout>

@@ -1,0 +1,302 @@
+---
+
+---
+
+<header id="header" class='sticky top-0 z-40 mb-12 flex w-full flex-wrap bg-background pb-3 text-sm backdrop-blur-sm transition-all duration-300 ease-in-out sm:flex-nowrap sm:justify-start'>
+	<nav
+		class='relative mx-auto flex w-full items-baseline justify-between sm:flex sm:items-baseline'
+		aria-label='global'
+	>
+		<a class='underline-hover flex-none text-xl font-semibold hover:text-secondary' href='/' aria-label='Brand'>Andrei-Bogdan Florea</a>
+
+		<!-- Mobile menu button -->
+		<button
+			id='mobileMenuToggle'
+			class='block rounded-md border border-border p-1.5 transition-all hover:bg-border sm:hidden'
+			aria-label='Toggle navigation menu'
+		>
+			<svg
+				xmlns='http://www.w3.org/2000/svg'
+				width='24'
+				height='24'
+				viewBox='0 0 24 24'
+				class='h-5 w-5'
+			>
+				<path
+					fill='currentColor'
+					d='M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z'
+				/>
+			</svg>
+		</button>
+
+		<!-- Desktop navigation -->
+		<div class='hidden flex-row items-center justify-center gap-x-5 sm:flex sm:gap-x-7'>
+			<a
+				href='#about'
+				class='underline-hover flex-none text-xs font-medium hover:text-secondary'
+				aria-label='Nav Menu Item'
+				>About
+			</a>
+			<a
+				href='experience'
+				class='underline-hover flex-none text-xs font-medium hover:text-secondary'
+				aria-label='Nav Menu Item'
+				>Experience
+			</a>
+			<a
+				href='#other-experiences'
+				class='underline-hover flex-none text-xs font-medium hover:text-secondary'
+				aria-label='Nav Menu Item'
+				>Other Experiences
+			</a>
+			<a
+				href='#education'
+				class='underline-hover flex-none text-xs font-medium hover:text-secondary'
+				aria-label='Nav Menu Item'
+				>Education
+			</a>
+			<a
+				href='#skills'
+				class='underline-hover flex-none text-xs font-medium hover:text-secondary'
+				aria-label='Nav Menu Item'
+				>Skills
+			</a>
+			<a
+				href='#projects'
+				class='underline-hover flex-none text-xs font-medium hover:text-secondary'
+				aria-label='Nav Menu Item'
+				>Projects
+			</a>
+			<a
+				href='#awards'
+				class='underline-hover flex-none text-xs font-medium hover:text-secondary'
+				aria-label='Nav Menu Item'
+				>Awards
+			</a>
+
+			<button
+				id='toggleDarkMode'
+				class='relative rounded-md border border-border p-1.5 transition-all hover:bg-border'
+			>
+				<span class='sr-only'>Dark Theme</span>
+				<svg
+					xmlns='http://www.w3.org/2000/svg'
+					width='32'
+					height='32'
+					viewBox='0 0 24 24'
+					class='h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:hidden dark:-rotate-90 dark:scale-0'
+					><path
+						fill='currentColor'
+						d='M12 15q1.25 0 2.125-.875T15 12q0-1.25-.875-2.125T12 9q-1.25 0-2.125.875T9 12q0 1.25.875 2.125T12 15m0 1q-1.671 0-2.836-1.164T8 12q0-1.671 1.164-2.836T12 8q1.671 0 2.836 1.164T16 12q0 1.671-1.164 2.836T12 16m-7-3.5H1.5v-1H5zm17.5 0H19v-1h3.5zM11.5 5V1.5h1V5zm0 17.5V19h1v3.5zM6.746 7.404l-2.16-2.098l.695-.744l2.111 2.134zM18.72 19.438l-2.117-2.14l.652-.702l2.16 2.098zM16.596 6.746l2.098-2.16l.744.695l-2.134 2.111zM4.562 18.72l2.14-2.117l.663.652l-2.078 2.179zM12 12'
+					></path></svg
+				>
+				<svg
+					xmlns='http://www.w3.org/2000/svg'
+					width='32'
+					height='32'
+					viewBox='0 0 24 24'
+					class='hidden h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:block dark:rotate-0 dark:scale-100'
+					><path
+						fill='currentColor'
+						d='M12.058 20q-3.334 0-5.667-2.333Q4.058 15.333 4.058 12q0-3.038 1.98-5.27Q8.02 4.5 10.942 4.097q.081 0 .159.006t.153.017q-.506.706-.801 1.57q-.295.865-.295 1.811q0 2.667 1.866 4.533q1.867 1.867 4.534 1.867q.952 0 1.813-.295q.862-.295 1.548-.801q.012.075.018.153q.005.078.005.158q-.384 2.923-2.615 4.904T12.057 20'
+					></path></svg
+				>
+			</button>
+		</div>
+	</nav>
+
+	<!-- Mobile navigation menu -->
+	<div
+		id='mobileMenu'
+		class='hidden absolute left-0 right-0 top-full z-50 mx-auto w-full max-w-md rounded-lg border border-border bg-background p-4 shadow-lg sm:hidden'
+	>
+		<div class='flex flex-col gap-y-4'>
+			<a
+				href='#about'
+				class='underline-hover block text-sm font-medium hover:text-secondary'
+				aria-label='Nav Menu Item'
+				>About
+			</a>
+			<a
+				href='experience'
+				class='underline-hover block text-sm font-medium hover:text-secondary'
+				aria-label='Nav Menu Item'
+				>Experience
+			</a>
+			<a
+				href='#other-experiences'
+				class='underline-hover block text-sm font-medium hover:text-secondary'
+				aria-label='Nav Menu Item'
+				>Other Experiences
+			</a>
+			<a
+				href='#education'
+				class='underline-hover block text-sm font-medium hover:text-secondary'
+				aria-label='Nav Menu Item'
+				>Education
+			</a>
+			<a
+				href='#skills'
+				class='underline-hover block text-sm font-medium hover:text-secondary'
+				aria-label='Nav Menu Item'
+				>Skills
+			</a>
+			<a
+				href='#projects'
+				class='underline-hover block text-sm font-medium hover:text-secondary'
+				aria-label='Nav Menu Item'
+				>Projects
+			</a>
+			<a
+				href='#awards'
+				class='underline-hover block text-sm font-medium hover:text-secondary'
+				aria-label='Nav Menu Item'
+				>Awards
+			</a>
+			
+			<div class='border-t border-border pt-4'>
+				<button
+					id='toggleDarkModeMobile'
+					class='flex w-full items-center gap-x-3 rounded-md border border-border p-2 transition-all hover:bg-border'
+				>
+					<span class='text-sm font-medium'>Toggle Theme</span>
+					<svg
+						xmlns='http://www.w3.org/2000/svg'
+						width='20'
+						height='20'
+						viewBox='0 0 24 24'
+						class='h-5 w-5 rotate-0 scale-100 transition-all dark:hidden dark:-rotate-90 dark:scale-0'
+						><path
+							fill='currentColor'
+							d='M12 15q1.25 0 2.125-.875T15 12q0-1.25-.875-2.125T12 9q-1.25 0-2.125.875T9 12q0 1.25.875 2.125T12 15m0 1q-1.671 0-2.836-1.164T8 12q0-1.671 1.164-2.836T12 8q1.671 0 2.836 1.164T16 12q0 1.671-1.164 2.836T12 16m-7-3.5H1.5v-1H5zm17.5 0H19v-1h3.5zM11.5 5V1.5h1V5zm0 17.5V19h1v3.5zM6.746 7.404l-2.16-2.098l.695-.744l2.111 2.134zM18.72 19.438l-2.117-2.14l.652-.702l2.16 2.098zM16.596 6.746l2.098-2.16l.744.695l-2.134 2.111zM4.562 18.72l2.14-2.117l.663.652l-2.078 2.179zM12 12'
+						></path></svg
+					>
+					<svg
+						xmlns='http://www.w3.org/2000/svg'
+						width='20'
+						height='20'
+						viewBox='0 0 24 24'
+						class='hidden h-5 w-5 rotate-90 scale-0 transition-all dark:block dark:rotate-0 dark:scale-100'
+						><path
+							fill='currentColor'
+							d='M12.058 20q-3.334 0-5.667-2.333Q4.058 15.333 4.058 12q0-3.038 1.98-5.27Q8.02 4.5 10.942 4.097q.081 0 .159.006t.153.017q-.506.706-.801 1.57q-.295.865-.295 1.811q0 2.667 1.866 4.533q1.867 1.867 4.534 1.867q.952 0 1.813-.295q.862-.295 1.548-.801q.012.075.018.153q.005.078.005.158q-.384 2.923-2.615 4.904T12.057 20'
+						></path></svg
+					>
+				</button>
+			</div>
+		</div>
+	</div>
+	</nav>
+</header>
+
+<!-- Back to top button -->
+<button
+	id='backToTop'
+	class='fixed bottom-6 right-6 z-50 hidden rounded-full bg-secondary p-3 text-foreground shadow-lg transition-all duration-300 ease-in-out hover:bg-secondary/90 hover:scale-110'
+	aria-label='Back to top'
+>
+	<svg
+		xmlns='http://www.w3.org/2000/svg'
+		width='20'
+		height='20'
+		viewBox='0 0 24 24'
+		fill='none'
+		stroke='currentColor'
+		stroke-width='2'
+		stroke-linecap='round'
+		stroke-linejoin='round'
+		class='h-5 w-5'
+	>
+		<path d='M18 15l-6-6-6 6'/>
+	</svg>
+</button>
+
+<script>
+	function getCurrentTheme() {
+		return localStorage.getItem('theme')
+	}
+	
+	function toggleTheme() {
+		const toggleDarkModeEvent = new CustomEvent('theme-change', {
+			detail: { theme: getCurrentTheme() === 'light' ? 'dark' : 'light' }
+		})
+		document.dispatchEvent(toggleDarkModeEvent)
+	}
+
+	// Desktop theme toggle
+	const toggleDarkModeButton = document.getElementById('toggleDarkMode')
+	toggleDarkModeButton?.addEventListener('click', toggleTheme)
+
+	// Mobile theme toggle
+	const toggleDarkModeMobileButton = document.getElementById('toggleDarkModeMobile')
+	toggleDarkModeMobileButton?.addEventListener('click', toggleTheme)
+
+	// Mobile menu toggle
+	const mobileMenuToggle = document.getElementById('mobileMenuToggle')
+	const mobileMenu = document.getElementById('mobileMenu')
+
+	mobileMenuToggle?.addEventListener('click', () => {
+		if (mobileMenu) {
+			mobileMenu.classList.toggle('hidden')
+		}
+	})
+
+	// Close mobile menu when clicking on navigation links
+	const mobileNavLinks = mobileMenu?.querySelectorAll('a')
+	mobileNavLinks?.forEach(link => {
+		link.addEventListener('click', () => {
+			if (mobileMenu) {
+				mobileMenu.classList.add('hidden')
+			}
+		})
+	})
+
+	// Close mobile menu when clicking outside
+	document.addEventListener('click', (event) => {
+		if (mobileMenu && !mobileMenu.contains(event.target) && !mobileMenuToggle?.contains(event.target)) {
+			mobileMenu.classList.add('hidden')
+		}
+	})
+
+	// Header scroll effect
+	const header = document.getElementById('header')
+	const backToTopButton = document.getElementById('backToTop')
+	let isScrolled = false
+
+	function updateHeaderOnScroll() {
+		const currentScrollY = window.scrollY
+		
+		if (currentScrollY > 10 && !isScrolled) {
+			// Scrolled down
+			isScrolled = true
+			header?.classList.add('border-b', 'border-border', 'bg-background/80', 'backdrop-blur-md')
+			header?.classList.remove('bg-background')
+		} else if (currentScrollY <= 10 && isScrolled) {
+			// At top
+			isScrolled = false
+			header?.classList.remove('border-b', 'border-border', 'bg-background/80', 'backdrop-blur-md')
+			header?.classList.add('bg-background')
+		}
+
+		// Show/hide back to top button
+		if (currentScrollY > 300) {
+			backToTopButton?.classList.remove('hidden')
+		} else {
+			backToTopButton?.classList.add('hidden')
+		}
+	}
+
+	// Back to top functionality
+	backToTopButton?.addEventListener('click', () => {
+		window.scrollTo({
+			top: 0,
+			behavior: 'smooth'
+		})
+	})
+
+	// Initial check
+	updateHeaderOnScroll()
+
+	// Listen for scroll events
+	window.addEventListener('scroll', updateHeaderOnScroll)
+</script>

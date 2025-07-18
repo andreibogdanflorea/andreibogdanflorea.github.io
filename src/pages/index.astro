@@ -1,0 +1,507 @@
+---
+import PageLayout from '../layouts/BaseLayout.astro'
+import Section from '../components/Section.astro'
+import TimelineSection from '../components/TimelineSection.astro'
+import TimelineItem from '../components/TimelineItem.astro'
+import SkillSection from '../components/SkillSection.astro'
+import SkillLayout from '../components/SkillLayout.astro'
+import Card from '../components/Card.astro'
+import ProjectCard from '../components/ProjectCard.astro'
+import Label from '../components/Label.astro'
+
+import { Image } from 'astro:assets'
+import profile_pic from '../assets/profile.jpg'
+
+import { getAllPosts, sortMDByDate } from '@/utils'
+
+const languages = [
+  { name: 'Python', level: 90, icon: 'devicon-python-plain', type: 'devicon' },
+  { name: 'C', level: 80, icon: 'devicon-c-plain', type: 'devicon' },
+  { name: 'C++', level: 75, icon: 'devicon-cplusplus-plain', type: 'devicon' },
+  { name: 'Java', level: 75, icon: 'devicon-java-plain', type: 'devicon' },
+  { name: 'Haskell', level: 60, icon: 'devicon-haskell-plain', type: 'devicon' },
+];
+
+const ml = [
+  { name: 'PyTorch', level: 90, icon: 'devicon-pytorch-original', type: 'devicon' },
+  { name: 'TensorFlow', level: 75, icon: 'devicon-tensorflow-original', type: 'devicon' },
+  { name: 'NumPy', level: 90, icon: 'devicon-numpy-plain', type: 'devicon' },
+  { name: 'Pandas', level: 85, icon: 'devicon-pandas-plain', type: 'devicon' },
+  { name: 'Scikit-learn', level: 85, icon: 'devicon-python-plain', type: 'devicon' },
+  { name: 'OpenCV', level: 85, icon: 'devicon-opencv-plain', type: 'devicon' },
+  { name: 'Computer Vision', level: 85, icon: 'eye_tracking', type: 'material' },
+  { name: 'NLP', level: 75, icon: 'subtitles_gear', type: 'material' },
+  { name: 'Classical ML', level: 75, icon: 'robot_2', type: 'material' },
+];
+
+const sweng = [
+  { name: 'Algorithms & \u2028 Data Structures', level: 90, icon: 'automation', type: 'material' },
+  { name: 'Parallel Computing & Distributed Systems', level: 80, icon: 'network_node', type: 'material' },
+  { name: 'Software Design & Architecture', level: 80, icon: 'devicon-unifiedmodelinglanguage-plain', type: 'devicon' },
+  { name: 'Git', level: 80, icon: 'devicon-git-plain', type: 'devicon' },
+  { name: 'Docker', level: 70, icon: 'devicon-docker-plain', type: 'devicon' },
+  { name: 'SQL', level: 80, icon: 'devicon-azuresqldatabase-plain', type: 'devicon' },
+];
+
+const MAX_POSTS = 10
+const allPosts = await getAllPosts()
+const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
+---
+
+<PageLayout meta={{ title: 'Home' }}>
+	<div class='flex w-full flex-col gap-y-10'>
+		<section class='flex flex-col items-center justify-center gap-y-7 scroll-fade-in min-h-[85vh] px-4 md:px-8 lg:px-16'>
+			<Image
+				src={profile_pic}
+				alt='profile photo'
+				class='h-56 w-auto rounded-full p-2'
+				loading='eager'
+			/>
+
+			<div class='flex flex-col items-center gap-y-4 w-full max-w-4xl px-4'>
+				<h1 class='text-4xl font-bold text-center'>Andrei-Bogdan Florea</h1>
+				<div class="typewriter-container mx-auto">
+					<span id="typewriter-text"></span><span class="cursor">|</span>
+				</div>
+				<div class='flex flex-wrap justify-center gap-x-7 gap-y-3'>
+					<Label title='andreiflorea02@gmail.com' as='a' href='mailto:andreiflorea02@gmail.com'>
+					<svg slot='icon' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class='h-5 w-5'>
+  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 13.5h3.86a2.25 2.25 0 0 1 2.012 1.244l.256.512a2.25 2.25 0 0 0 2.013 1.244h3.218a2.25 2.25 0 0 0 2.013-1.244l.256-.512a2.25 2.25 0 0 1 2.013-1.244h3.859m-19.5.338V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18v-4.162c0-.224-.034-.447-.1-.661L19.24 5.338a2.25 2.25 0 0 0-2.15-1.588H6.911a2.25 2.25 0 0 0-2.15 1.588L2.35 13.177a2.25 2.25 0 0 0-.1.661Z" />
+</svg>
+						
+					</Label>
+					<Label title='andreibogdanflorea' as='a' href='https://github.com/andreibogdanflorea'>
+						<svg slot='icon' xmlns="http://www.w3.org/2000/svg"" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github-icon lucide-github"
+						><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+					</Label>
+					<Label
+						title='andrei-bogdan-florea'
+						as='a'
+						href='https://www.linkedin.com/in/andrei-bogdan-florea/'
+						target='_blank'
+					>
+						<svg
+							xmlns='http://www.w3.org/2000/svg'
+							viewBox='0 0 16 16'
+							slot='icon'
+							class='h-5 w-5 text-foreground/75'
+							><path
+								fill='currentColor'
+								d='M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248c-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586c.173-.431.568-.878 1.232-.878c.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252c-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z'
+							></path></svg
+						>
+					</Label>
+				</div>
+				<div class="cta-buttons flex justify-center">
+					<a href="/files/CV%20-%20Andrei%20Florea.pdf" class="btn primary-btn" target="_blank" rel="noopener noreferrer">Download CV</a>
+				</div>
+			</div>
+		</section>
+
+		<Section title='About' id='about' class='scroll-fade-in'>
+			<p class='text-muted-foreground'>
+				I am passionate about Machine Learning, with a strong focus on Computer Vision. I have over a year of industry experience and have worked on a range of projects, including both my Bachelor’s and Master’s theses.
+			</p>
+			<p class='text-muted-foreground'>
+				I am a competitive programming enthusiast, having earned multiple medals at the Romanian National Olympiad in Informatics, along with several other distinctions during my studies.
+			</p>
+		</Section>
+
+		<TimelineSection title='Work Experience' id='experience'>
+			<TimelineItem date='Jul 2022 - Aug 2023'>
+				<Card
+					heading='Machine Learning Engineer Intern'
+					subheading='Xperi Inc., Bucharest, Romania'
+					imagePath='/src/assets/logo_xperi.png'
+					altText='Company Logo'
+					imageClass='h-auto w-12 md:-left-16 max-h-12 max-w-12'
+					hideDate={true}
+					isTimeline={true}
+				>
+					<ul class='text-left ml-4 list-disc text-muted-foreground'>
+						<li>Engineered synthetic data generation pipelines in PyTorch, using GANs and image super-resolution</li>
+						<li>Improved a human segmentation network with the additional synthetic data</li>
+						<li>Enhanced a facial landmark detection network with synthetic data, achieving over 30% improvement under extreme head pose angles</li>
+						<li>Proposed a method for automatically labeling facial keypoint visibility, obtaining high accuracy on datasets with self-occlusions and external occlusions</li>
+						<li>Replaced a legacy head pose estimation method with a 3D Morphable Head Model fitting approach, increasing precision and robustness</li>
+					</ul>
+				</Card>
+			</TimelineItem>
+		</TimelineSection>
+
+		<TimelineSection title='Other Experiences' id='other-experiences'>
+			<TimelineItem date='Jul 2021 - Aug 2021'>
+				<Card
+					heading='Artificial Intelligence and Multi-Agent Systems Summer School'
+					subheading='AI-MAS Laboratory, University Politehnica of Bucharest'
+					imagePath='/src/assets/logo_upb.png'
+					altText='Lorem, ipsum dolor sit'
+					imageClass='h-auto w-12 md:-left-16 max-h-12 max-w-12'
+					hideDate={true}
+					isTimeline={true}
+				>
+					<ul class='text-left ml-4 list-disc text-muted-foreground'>
+						<li>Attended lectures and had hands-on experience with concepts of Deep Learning</li>
+						<li>Researched ways to improve an Image and Video Captioning model</li>
+					</ul>
+				</Card>
+			</TimelineItem>
+			<TimelineItem date='Oct 2020 - Sep 2022'>
+				<Card
+					heading='Undergraduate Teaching Assistant'
+					subheading='Computer Programming Team, University Politehnica of Bucharest'
+					imagePath='/src/assets/logo_upb.png'
+					altText='Lorem, ipsum dolor sit'
+					imageClass='h-auto w-12 md:-left-16 max-h-12 max-w-12'
+					hideDate={true}
+					isTimeline={true}
+				>
+					<ul class='text-left ml-4 list-disc text-muted-foreground'>
+						<li>Prepared and evaluated assignments for first-year students (100+ students)</li>
+						<li>Learned to work as a team with professors and other students to improve the learning experience</li>
+					</ul>
+				</Card>
+			</TimelineItem>
+			<TimelineItem date='Aug 2018'>
+				<Card
+					heading='Electronics Summer School'
+					subheading='Politehnica University of Timișoara'
+					imagePath='/src/assets/logo_esu.png'
+					altText='Lorem, ipsum dolor sit'
+					imageClass='h-auto w-12 md:-left-16 max-h-12 max-w-12'
+					hideDate={true}
+					isTimeline={true}
+				>
+					<ul class='text-left ml-4 list-disc text-muted-foreground'>
+						<li>Studied basic electronics, had hands-on experience with Arduino</li>
+						<li>Obtained the highest score on the final tests among the 80+ participants</li>
+					</ul>
+				</Card>
+			</TimelineItem>
+		</TimelineSection>
+
+		<TimelineSection title='Education' id='education'>
+			<TimelineItem date='Sep 2023 - Jun 2025'>
+				<Card
+					class='timeline-card'
+					heading='M.Sc. in Computer Science, Artificial Intelligence specialization'
+					subheading='KU Leuven, Belgium'
+					imagePath='/src/assets/logo_kuleuven.png'
+					altText='Lorem, ipsum dolor sit'
+					imageClass='h-auto w-20 md:-left-16'
+					hideDate={true}
+					isTimeline={true}
+				>
+					<ul class='text-left ml-4 list-disc text-muted-foreground'>
+						<li>Average grade: 89.67%</li>
+						<li>
+							<span class="font-semibold text-primary">
+								Graduated top of the class: Summa cum laude with congratulations of the Board of Examiners
+							</span>
+						</li>
+						<li>Thesis: Image Segmentation with Weak Supervision</li>
+						<div class="cta-buttons flex flex-row gap-2 justify-start mt-2">
+							<a href="/files/master_thesis_text.pdf"
+							   class="btn primary-btn bg-muted px-4 py-1 text-s"
+							   target="_blank" rel="noopener noreferrer">
+								View Thesis
+							</a>
+							<a href="/files/master_thesis_poster.pdf"
+							   class="btn primary-btn bg-muted px-4 py-1 text-s"
+							   target="_blank" rel="noopener noreferrer">
+								View Poster
+							</a>
+						</div>
+						<li>
+							<span>Relevant courses:</span>
+							<div class="flex flex-wrap gap-2 mt-2">
+								<span class="inline-block rounded bg-muted px-3 py-1 text-sm text-muted-foreground">Principles of Machine Learning</span>
+								<span class="inline-block rounded bg-muted px-3 py-1 text-sm text-muted-foreground">Computer Vision</span>
+								<span class="inline-block rounded bg-muted px-3 py-1 text-sm text-muted-foreground">Natural Language Processing</span>
+								<span class="inline-block rounded bg-muted px-3 py-1 text-sm text-muted-foreground">Reinforcement Learning</span>
+								<span class="inline-block rounded bg-muted px-3 py-1 text-sm text-muted-foreground">Big Data Analytics</span>
+								<span class="inline-block rounded bg-muted px-3 py-1 text-sm text-muted-foreground">Software Design</span>
+								<span class="inline-block rounded bg-muted px-3 py-1 text-sm text-muted-foreground">Software Architecture</span>
+							</div>
+						</li>
+					</ul>
+				</Card>
+			</TimelineItem>
+			<TimelineItem date='Oct 2019 - Jul 2023'>
+				<Card
+					class='timeline-card'
+					heading='B.Sc. in Computer Science and Engineering'
+					subheading='University Politehnica of Bucharest, Romania'
+					imagePath='/src/assets/logo_upb.png'
+					altText='Lorem, ipsum dolor sit'
+					imageClass='h-auto w-12 md:-left-16'
+					hideDate={true}
+					isTimeline={true}
+				>
+				<ul class='text-left ml-4 list-disc text-muted-foreground'>
+						<li>Average grade: 99.00%</li>
+						<li>Thesis: Face Components Segmentation Using Generated Facial Images</li>
+						<div class="cta-buttons flex flex-row gap-2 justify-start mt-2">
+							<a href="/files/bachelor_thesis_text.pdf"
+							   class="btn primary-btn bg-muted px-4 py-1 text-s"
+							   target="_blank" rel="noopener noreferrer">
+								View Thesis
+							</a>
+							<a href="https://ieeexplore.ieee.org/document/10605920"
+							   class="btn primary-btn bg-muted px-4 py-1 text-s"
+							   target="_blank" rel="noopener noreferrer">
+								View Publication
+							</a>
+						</div>
+						<li>
+							<span>Relevant courses:</span>
+							<div class="flex flex-wrap gap-2 mt-2">
+								<span class="inline-block rounded bg-muted px-3 py-1 text-sm text-muted-foreground">Algorithms & Data Structures</span>
+								<span class="inline-block rounded bg-muted px-3 py-1 text-sm text-muted-foreground">Object-Oriented Programming</span>
+								<span class="inline-block rounded bg-muted px-3 py-1 text-sm text-muted-foreground">Parallel and Distributed Computing</span>
+								<span class="inline-block rounded bg-muted px-3 py-1 text-sm text-muted-foreground">Machine Learning</span>
+							</div>
+						</li>
+					</ul>
+				</Card>
+			</TimelineItem>
+		</TimelineSection>
+
+		<SkillSection title='Technical Skills' id='skills' class='scroll-fade-in'>
+			<SkillLayout title='Languages' skills={languages} />
+			<SkillLayout title='Machine Learning & Deep Learning' skills={ml} />
+			<SkillLayout title='Software Engineering' skills={sweng} />
+		</SkillSection>
+
+		<section id='projects' class='flex flex-col items-center text-center gap-y-6 px-4 md:px-0 max-w-4xl mx-auto overflow-hidden scroll-fade-in'>
+			<div class="w-full border-t border-border pt-5 -mx-4 md:mx-0"></div>
+			<div class="text-2xl md:text-3xl font-semibold w-full">
+				<h2>Projects</h2>
+			</div>
+			<div class='w-full overflow-hidden'>
+				<div class='flex gap-x-4 overflow-x-auto pb-4 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-muted-foreground/30 hover:scrollbar-thumb-muted-foreground/50'>
+					<ProjectCard
+						href='/projects/image-segmentation-weak-supervision'
+						heading='Image Segmentation with Weak Supervision'
+						subheading='Master's Thesis Project'
+						imagePath='/src/assets/master_thesis_image.png'
+						altText='Example'
+						class='flex-none w-80 sm:w-96'
+					/>
+					<ProjectCard
+						href='/projects/face-components-segmentation'
+						heading='Face Components Segmentation Using Generated Facial Images'
+						subheading='Bachelor's Thesis Project'
+						imagePath='/src/assets/bachelor_thesis_image.png'
+						altText='Lorem, ipsum dolor sit'
+						class='flex-none w-80 sm:w-96'
+					/>
+					<ProjectCard
+						href='/projects/image-video-captioning'
+						heading='Image and Video Captioning'
+						subheading='University Project'
+						imagePath='/src/assets/image_captioning.png'
+						altText='Lorem, ipsum dolor sit'
+						class='flex-none w-80 sm:w-96'
+					/>
+					<ProjectCard
+						href='/projects/basketball-shooting-assistant'
+						heading='Basketball Shooting Assistant'
+						subheading='Personal Project'
+						imagePath='/src/assets/basketball_shooting_assistant.jpg'
+						altText='Lorem, ipsum dolor sit'
+						class='flex-none w-80 sm:w-96'
+					/>
+				</div>
+			</div>
+		</section>		<Section title='Honors & Awards' id='awards'>
+			<Card
+				as='a'
+				heading='Qualified to ACM-ICPC Southeastern European Regional Contest'
+				subheading='Team-based Algorithmic Contest - qualified after winning the regional and national phases of the competition'
+				date='2021'
+				imagePath='/src/assets/trophy.png'
+				altText='Lorem, ipsum dolor sit'
+				imageClass='h-11 w-auto md:-left-16',
+				imagePosition='left'
+			/>
+			<Card
+				as='a'
+				heading='First Prize at the iTec Contest'
+				subheading='Individual Algorithmic Contest, organized by Politehnica University Timișoara'
+				date='2021'
+				imagePath='/src/assets/trophy.png'
+				altText='Lorem, ipsum dolor sit'
+				imageClass='h-11 w-auto md:-left-16'
+				imagePosition='left'
+			/>
+			<Card
+				as='a'
+				heading='Bronze Medal at the Romanian National Olympiad in Informatics'
+				subheading='National Algorithmic Contest, organized by the Romanian Ministry of Education'
+				date='2013, 2015, 2016, 2017, 2019'
+				imagePath='/src/assets/trophy.png'
+				altText='Lorem, ipsum dolor sit'
+				imageClass='h-11 w-auto md:-left-16'
+				imagePosition='left'
+			/>
+			<Card
+				as='a'
+				heading='Participant at a Romanian National Olympiad in Informatics/Mathematics/Physics every year'
+				subheading='Qualifying from the local and regional phases of the competition'
+				date='2012-2019'
+				imagePath='/src/assets/trophy.png'
+				altText='Lorem, ipsum dolor sit'
+				imageClass='h-11 w-auto md:-left-16'
+				imagePosition='left'
+			/>
+		</Section>
+	</div>
+</PageLayout>
+
+<script>
+	const texts = [
+	"Master's Graduate in Computer Science",
+	"Machine Learning Enthusiast",
+	"Computer Vision Specialist"
+	];
+
+	let textIndex = 0;
+	let charIndex = 0;
+	let typingSpeed = 100;  // milliseconds
+	let pauseBetweenTexts = 1500;  // milliseconds
+	let deleting = false;
+
+	const typewriter = document.getElementById("typewriter-text");
+
+	function typeEffect() {
+	const currentText = texts[textIndex];
+
+	if (!deleting) {
+		typewriter.textContent = currentText.slice(0, ++charIndex);
+		if (charIndex === currentText.length) {
+		deleting = true;
+		setTimeout(typeEffect, pauseBetweenTexts);
+		} else {
+		setTimeout(typeEffect, typingSpeed);
+		}
+	} else {
+		typewriter.textContent = currentText.slice(0, --charIndex);
+		if (charIndex === 0) {
+		deleting = false;
+		textIndex = (textIndex + 1) % texts.length;
+		setTimeout(typeEffect, 500);
+		} else {
+		setTimeout(typeEffect, 50);
+		}
+	}
+	}
+
+	document.addEventListener("DOMContentLoaded", typeEffect);
+
+	// Scroll animations
+	const observerOptions = {
+		threshold: 0.1,
+		rootMargin: '0px 0px -50px 0px'
+	};
+
+	const observer = new IntersectionObserver((entries) => {
+		entries.forEach(entry => {
+			if (entry.isIntersecting) {
+				entry.target.classList.add('animate');
+			}
+		});
+	}, observerOptions);
+
+	// Section stagger animations observer
+	const sectionObserverOptions = {
+		threshold: 0.1,
+		rootMargin: '0px 0px -50px 0px'
+	};
+
+	const sectionObserver = new IntersectionObserver((entries) => {
+		entries.forEach(entry => {
+			if (entry.isIntersecting) {
+				entry.target.classList.add('animate');
+			}
+		});
+	}, sectionObserverOptions);
+
+	// Timeline section animations observer
+	const timelineSectionObserverOptions = {
+		threshold: 0.1,
+		rootMargin: '0px 0px -50px 0px'
+	};
+
+	const timelineSectionObserver = new IntersectionObserver((entries) => {
+		entries.forEach(entry => {
+			if (entry.isIntersecting) {
+				entry.target.classList.add('animate');
+			}
+		});
+	}, timelineSectionObserverOptions);
+
+	// Timeline item animations observer
+	const timelineItemObserverOptions = {
+		threshold: 0.3,
+		rootMargin: '0px 0px -50px 0px'
+	};
+
+	const timelineItemObserver = new IntersectionObserver((entries) => {
+		entries.forEach(entry => {
+			if (entry.isIntersecting) {
+				entry.target.classList.add('animate');
+			}
+		});
+	}, timelineItemObserverOptions);
+
+	// Skill animations observer
+	const skillObserverOptions = {
+		threshold: 0.3,
+		rootMargin: '0px 0px -50px 0px'
+	};
+
+	const skillObserver = new IntersectionObserver((entries) => {
+		entries.forEach(entry => {
+			if (entry.isIntersecting) {
+				const skillGroup = entry.target;
+				skillGroup.classList.add('animate');
+				
+				// Animate skill bars
+				const skillBars = skillGroup.querySelectorAll('.skill-progress-bar');
+				skillBars.forEach((bar, index) => {
+					const level = bar.getAttribute('data-skill-level');
+					setTimeout(() => {
+						bar.style.width = `${level}%`;
+					}, index * 150 + 300); // Stagger the bar animations with delay
+				});
+			}
+		});
+	}, skillObserverOptions);
+
+	// Observe all scroll-fade-in elements
+	document.querySelectorAll('.scroll-fade-in').forEach(el => {
+		observer.observe(el);
+	});
+
+	// Observe section stagger elements
+	document.querySelectorAll('.section-stagger').forEach(el => {
+		sectionObserver.observe(el);
+	});
+
+	// Observe timeline section stagger elements
+	document.querySelectorAll('.timeline-section-stagger').forEach(el => {
+		timelineSectionObserver.observe(el);
+	});
+
+	// Observe timeline item stagger elements
+	document.querySelectorAll('.timeline-item-stagger').forEach(el => {
+		timelineItemObserver.observe(el);
+	});
+
+	// Observe skill animation groups
+	document.querySelectorAll('.skill-animation-group').forEach(el => {
+		skillObserver.observe(el);
+	});
+
+</script>

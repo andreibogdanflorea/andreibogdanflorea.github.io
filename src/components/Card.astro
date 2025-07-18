@@ -1,0 +1,69 @@
+---
+import { Image } from 'astro:assets'
+import type { ImageMetadata } from 'astro'
+import { cn } from '@/utils'
+
+const {
+	as: Tag = 'div',
+	class: className,
+	href,
+	heading,
+	subheading,
+	date,
+	imagePath,
+	altText,
+	imageClass,
+	hideDate = false,
+	imagePosition = 'inside', // 'inside' or 'left'
+	isTimeline = false // New prop to identify timeline cards
+} = Astro.props
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/*.{jpeg,jpg,png,gif}')
+
+if (imagePath) {
+	if (!images[imagePath])
+		throw new Error(`"${imagePath}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`)
+}
+---
+
+<Tag
+	class={cn(
+		className,
+		'relative rounded-2xl border border-border px-5 py-3',
+		isTimeline ? 'bg-primary/10 shadow-md' : 'bg-primary/10',
+		isTimeline && 'md:before:content-[""] md:before:absolute md:before:left-4 md:before:-top-2 md:before:w-0 md:before:h-0',
+		isTimeline && 'md:before:border-l-[8px] md:before:border-l-transparent md:before:border-r-[8px] md:before:border-r-transparent md:before:border-b-[8px] md:before:border-b-border',
+		href && (isTimeline ? 'transition-all hover:border-foreground/25 hover:shadow-lg hover:scale-[1.02]' : 'transition-all hover:border-foreground/25 hover:shadow-sm')
+	)}
+	href={href}
+>
+	{
+		imagePath && imagePosition === 'left' && (
+			<Image
+				src={images[imagePath]()}
+				alt={altText}
+				class={cn('mb-3 md:absolute md:mb-0', imageClass)}
+				loading='eager'
+			/>
+		)
+	}
+	<div class='flex flex-col gap-y-1.5'>
+		<div class='flex flex-col gap-y-0.5'>
+			<h1 class='text-primary font-bold'>{heading}</h1>
+			<h2 class='text-lg'>{subheading}</h2>
+			{
+				imagePath && imagePosition === 'inside' && (
+					<div class='flex justify-center pt-1 pb-3'>
+						<Image
+							src={images[imagePath]()}
+							alt={altText}
+							class={cn(imageClass)}
+							loading='eager'
+						/>
+					</div>
+				)
+			}
+			{!hideDate && <h2 class='text-muted-foreground'>{date}</h2>}
+		</div>
+		<slot />
+	</div>
+</Tag>

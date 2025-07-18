@@ -1,0 +1,501 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+	font-family: 'Satoshi';
+	src: url('/fonts/Satoshi-Variable.ttf');
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Satoshi';
+	src: url('/fonts/Satoshi-VariableItalic.ttf');
+	font-style: italic;
+	font-display: swap;
+}
+
+@layer base {
+  :root {
+    /* Backgrounds & Surfaces */
+    --background: 0 0% 100%; /* #ffffff */
+    --card: 210 40% 98%;     /* #f8fafc */
+    --popover: 0 0% 100%;    /* same as background */
+    --foreground: 215 27% 17%; /* #1e293b */
+    --card-foreground: 215 27% 17%;
+    --popover-foreground: 215 27% 17%;
+
+    /* Primary and Accent Colors */
+    --primary: 221 83% 53%;   /* #2563eb */
+    --secondary: 243 75% 59%; /* #4f46e5 */
+    --accent: 262 83% 67%;    /* #8b5cf6 */
+
+    --primary-foreground: 210 40% 98%; /* #f8fafc (light text on primary) */
+    --secondary-foreground: 210 40% 98%;
+    --accent-foreground: 210 40% 98%;
+
+    /* Muted & Text */
+    --muted: 214 32% 91%;     /* #e2e8f0 */
+    --muted-foreground: 215 20% 44%;  /* #64748b */
+    --text-primary: 215 27% 17%; /* #1e293b */
+    --text-secondary: 215 20% 34%; /* #475569 */
+    --text-tertiary: 215 20% 50%; /* #64748b */
+
+    /* Status Colors */
+    --destructive: 0 84% 60%;     /* #ef4444 */
+    --destructive-foreground: 210 40% 98%; /* light text */
+
+    --success: 160 84% 39%;   /* #10b981 */
+    --warning: 42 94% 50%;    /* #f59e0b */
+
+    /* Borders & Inputs */
+    --border: 214 32% 91%;   /* #e2e8f0 */
+    --input: 214 32% 91%;
+
+    /* Shadows and Effects */
+    --ring: 221 83% 53%;     /* use primary color */
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222 47% 11%; /* #0f172a */
+    --card: 215 28% 23%;       /* #1e293b */
+    --popover: 215 28% 23%;
+    --foreground: 210 40% 98%; /* #f8fafc */
+    --card-foreground: 210 40% 98%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217 91% 60%;     /* #3b82f6 */
+    --secondary: 240 67% 62%;   /* #6366f1 */
+    --accent: 262 83% 75%;      /* #a78bfa */
+
+    --muted: 215 28% 23%;
+    --muted-foreground: 215 20% 78%; /* #cbd5e1 */
+
+    --text-primary: 210 40% 98%; /* #f8fafc */
+    --text-secondary: 214 32% 91%; /* #e2e8f0 */
+    --text-tertiary: 215 20% 78%;  /* #cbd5e1 */
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 215 28% 27%;    /* #334155 */
+    --input: 215 28% 27%;
+
+    --ring: 217 91% 60%;
+  }
+}
+
+@layer base {
+	* {
+		@apply border-border;
+	}
+	body {
+		@apply bg-background text-foreground;
+	}
+}
+
+@layer components {
+  .underline-hover {
+    position: relative;
+    display: inline-block;
+  }
+
+  .underline-hover::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0%;
+    height: 2px;
+    background-color: currentColor;
+    transition: width 0.3s ease;
+  }
+
+  .underline-hover:hover::after {
+    width: 100%;
+  }
+
+  .typewriter-container {
+    font: inherit;
+    font-size: 1.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    width: fit-content;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* Allow wrapping for very long text on mobile */
+  @media (max-width: 640px) {
+    .typewriter-container {
+      white-space: normal;
+      overflow: visible;
+      font-size: 1.125rem;
+      max-width: 95vw;
+      line-height: 1.4;
+    }
+  }
+
+  @media (min-width: 641px) and (max-width: 768px) {
+    .typewriter-container {
+      font-size: 1.25rem;
+      max-width: 90vw;
+    }
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .typewriter-container {
+      font-size: 1.4rem;
+      max-width: 80vw;
+    }
+  }
+
+  @media (min-width: 1025px) {
+    .typewriter-container {
+      font-size: 1.5rem;
+      max-width: 70vw;
+    }
+  }
+
+  .cursor {
+    color: var(--text-foreground);
+    animation: blink 1.0s infinite;
+    margin-left: 1px;
+  }
+
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    50.01%, 100% { opacity: 0; }
+  }
+
+  .hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 100vh;
+    padding: 6rem 2rem 2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-content {
+      flex: 1;
+      max-width: 600px;
+  }
+
+  .cta-buttons {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+  .btn {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      border-radius: 30px;
+      font-weight: 500;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-bottom: 1rem;
+  }
+
+  .primary-btn {
+    background: linear-gradient(45deg, hsl(var(--primary)), hsl(var(--secondary)));
+    color: white;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+  }
+
+  .primary-btn:hover {
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+      transform: translateY(-3px);
+      color: white;
+  }
+
+  .skill-category {
+    margin-bottom: 3rem;
+  }
+
+  .skill-category h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0.5rem;
+  }
+
+  /* Scroll animations */
+  .scroll-fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  .scroll-fade-in.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Stagger delays for multiple sections */
+  .scroll-fade-in:nth-child(1) { transition-delay: 0ms; }
+  .scroll-fade-in:nth-child(2) { transition-delay: 100ms; }
+  .scroll-fade-in:nth-child(3) { transition-delay: 200ms; }
+  .scroll-fade-in:nth-child(4) { transition-delay: 300ms; }
+  .scroll-fade-in:nth-child(5) { transition-delay: 400ms; }
+  .scroll-fade-in:nth-child(6) { transition-delay: 500ms; }
+  .scroll-fade-in:nth-child(7) { transition-delay: 600ms; }
+  .scroll-fade-in:nth-child(8) { transition-delay: 700ms; }
+
+  /* Section stagger animations */
+  .section-stagger .section-item,
+  .section-stagger .section-content > * {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  .section-stagger.animate .section-item:nth-child(1) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0ms;
+  }
+
+  .section-stagger.animate .section-item:nth-child(2) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 200ms;
+  }
+
+  .section-stagger.animate .section-content {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .section-stagger.animate .section-content > *:nth-child(1) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 400ms;
+  }
+
+  .section-stagger.animate .section-content > *:nth-child(2) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 600ms;
+  }
+
+  .section-stagger.animate .section-content > *:nth-child(3) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 800ms;
+  }
+
+  .section-stagger.animate .section-content > *:nth-child(4) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 1000ms;
+  }
+
+  .section-stagger.animate .section-content > *:nth-child(5) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 1200ms;
+  }
+
+  /* Timeline section stagger animations */
+  .timeline-section-stagger .timeline-section-item {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  .timeline-section-stagger .timeline-line {
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  .timeline-section-stagger.animate .timeline-section-item:nth-child(1) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0ms;
+  }
+
+  .timeline-section-stagger.animate .timeline-section-item:nth-child(2) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 200ms;
+  }
+
+  .timeline-section-stagger.animate .timeline-section-item:nth-child(3) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 400ms;
+  }
+
+  .timeline-section-stagger.animate .timeline-line {
+    opacity: 1;
+    transform: scaleY(1);
+    transition-delay: 600ms;
+  }
+
+  /* Timeline item stagger animations */
+  .timeline-item-stagger {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  .timeline-item-stagger .timeline-item-element {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .timeline-item-stagger.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .timeline-item-stagger.animate .timeline-item-element {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .timeline-item-stagger.animate .timeline-item-element:nth-child(1) {
+    transition-delay: 200ms;
+  }
+
+  .timeline-item-stagger.animate .timeline-item-element:nth-child(2) {
+    transition-delay: 400ms;
+  }
+
+  /* Skill animations */
+  .skill-fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .skill-fade-in.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .skill-progress-bar {
+    width: 0%;
+    transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Animation group for skill categories */
+  .skill-animation-group.animate .skill-fade-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Fix for horizontal scroll overflow */
+  html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+
+  main {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+
+  /* Ensure projects scroll container doesn't overflow */
+  .overflow-x-auto {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--muted-foreground) / 0.3) transparent;
+  }
+
+  .overflow-x-auto::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .overflow-x-auto::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .overflow-x-auto::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--muted-foreground) / 0.3);
+    border-radius: 3px;
+  }
+
+  .overflow-x-auto:hover::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--muted-foreground) / 0.5);
+  }
+
+  /* Mobile responsiveness improvements */
+  @media (max-width: 640px) {
+    .min-h-\[85vh\] {
+      min-height: 70vh;
+    }
+    
+    .gap-y-10 {
+      gap: 2rem 0;
+    }
+    
+    .text-4xl {
+      font-size: 2rem;
+      line-height: 2.5rem;
+    }
+    
+    /* Ensure project cards are appropriately sized on mobile */
+    .flex-none.w-80 {
+      width: 280px;
+      min-width: 280px;
+    }
+    
+    /* Adjust section padding for mobile */
+    section {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+
+    /* Specific fixes for projects section */
+    #projects {
+      padding-left: 1rem;
+      padding-right: 1rem;
+      max-width: 100vw;
+    }
+
+    #projects .w-full.overflow-hidden {
+      margin-left: -1rem;
+      margin-right: -1rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
+
+  /* Extra small screens */
+  @media (max-width: 480px) {
+    .flex-none.w-80 {
+      width: 260px;
+      min-width: 260px;
+    }
+    
+    .text-4xl {
+      font-size: 1.75rem;
+      line-height: 2.25rem;
+    }
+
+    #projects {
+      padding-left: 0.75rem;
+      padding-right: 0.75rem;
+    }
+
+    #projects .w-full.overflow-hidden {
+      margin-left: -0.75rem;
+      margin-right: -0.75rem;
+      padding-left: 0.75rem;
+      padding-right: 0.75rem;
+    }
+  }
+}

@@ -1,36 +1,79 @@
-# [Hugo Résumé Theme](https://github.com/HugoBlox/theme-resume)
+# Astro Resume
 
-[![Screenshot](./.github/preview.png)](https://hugoblox.com/templates/)
+## Features
 
-The Hugo **Résumé Template** empowers you to easily create your job-winning online résumé, showcase your expertise, and share your social profiles to grow your audience.
+- Astro v4
+- TailwindCSS utility classes
+- ESLint / Prettier pre-installed and pre-configured
+- Accessible, semantic HTML markup
+- Responsive & SEO-friendly
+- Dark / Light mode, using Tailwind and CSS variables (referenced from shadcn)
+- [Astro Assets Integration](https://docs.astro.build/en/guides/assets/) for optimised images
+- MD & [MDX](https://docs.astro.build/en/guides/markdown-content/#mdx-only-features) posts
+- Pagination
+- [Automatic RSS feed](https://docs.astro.build/en/guides/rss)
+- Auto-generated [sitemap](https://docs.astro.build/en/guides/integrations-guide/sitemap/)
+- [Expressive Code](https://expressive-code.com/) source code and syntax highlighter
 
-️**Trusted by 250,000+ researchers, educators, and students.** Highly customizable via the integrated **no-code, block-based website builder**, making every site truly personalized ⭐⭐⭐⭐⭐
+## Credits
 
-[![Get Started](https://img.shields.io/badge/-Get%20started-ff4655?style=for-the-badge)](https://hugoblox.com/templates/)
-[![Discord](https://img.shields.io/discord/722225264733716590?style=for-the-badge)](https://discord.com/channels/722225264733716590/742892432458252370/742895548159492138)  
-[![Twitter Follow](https://img.shields.io/twitter/follow/GetResearchDev?label=Follow%20on%20Twitter)](https://twitter.com/GetResearchDev)
+- [astro-theme-cactus](https://github.com/chrismwilliams/astro-theme-cactus) for blog design
+- [minirezume-framer](https://minirezume.framer.website/) for resume homepage design
 
-[Check out the latest demo](https://hugo-resume-theme.netlify.app/) of what you'll get in less than 10 minutes, or [view the showcase](https://hugoblox.com/creators/).
+## Project Structure
 
-The integrated [**Hugo Blox**](https://hugoblox.com) website builder and CMS makes it easy to create a beautiful website for free. Edit your site in the CMS (or your favorite editor), generate it with [Hugo](https://github.com/gohugoio/hugo), and deploy with GitHub or Netlify. Customize anything on your site with widgets, light/dark themes, and language packs.
+Inside of your Astro project, you'll see the following folders and files:
 
-- 👉 [**Get Started**](https://hugoblox.com/templates/)
-- 📚 [View the **documentation**](https://docs.hugoblox.com/)
-- 💬 [Chat with the **Hugo Blox Builder community**](https://discord.gg/z8wNYzb) or [**Hugo community**](https://discourse.gohugo.io)
-- ⬇️ **Automatically import citations from BibTeX** with the [Hugo Academic CLI](https://github.com/GetRD/academic-file-converter)
-- 🐦 Share your new site with the community: [@GetResearchDev](https://twitter.com/GetResearchDev) [@GeorgeCushen](https://twitter.com/GeorgeCushen) [#MadeWithHugoBlox](https://twitter.com/search?q=%23MadeWithHugoBlox&src=typed_query)
-- 🗳 [Take the survey and help us improve #OpenSource](https://forms.gle/NioD9VhUg7PNmdCAA)
-- 🚀 [Contribute improvements](https://github.com/HugoBlox/hugo-blox-builder/blob/main/CONTRIBUTING.md) or [suggest improvements](https://github.com/HugoBlox/hugo-blox-builder/issues)
-- ⬆️ **Updating?** View the [Update Guide](https://docs.hugoblox.com/) and [Release Notes](https://github.com/HugoBlox/hugo-blox-builder/releases)
+```text
+├── public/
+├── src/
+    ├── assets/
+│   ├── components/
+│   ├── content/
+│   ├── layouts/
+|   ├── pages/
+|   ├── styles/
+|   ├── utils/
+|   ├── site.config.ts
+│   └── types.ts
+├── .elintrc.cjs
+├── .gitignore
+├── .prettierignore
+├── package.json
+├── prettier.config.cjs
+├── README.md
+├── tailwind.config.js
+└── tsconfig.json
+```
 
-## We ask you, humbly, to support this open source movement
+## Editing guide
 
-Today we ask you to defend the open source independence of the Hugo Blox Builder and themes 🐧
+### Site info
 
-We're an open source movement that depends on your support to stay online and thriving, but 99.9% of our creators don't give; they simply look the other way.
+To edit site info such as site title and description, edit the `src/site.config.ts` file.
 
-### [❤️ Click here to become a GitHub Sponsor, unlocking awesome perks such as _exclusive academic templates and widgets_](https://github.com/sponsors/gcushen)
+### Page contents
 
-## Demo credits
+To edit the resume homepage content and design, edit the `src/pages/index.astro` file.
 
-- [Unsplash](https://unsplash.com/) images
+### Page components
+
+To edit page components found site-wide such as the card used in the homepage, edit the files found in the `src/components/` directory.
+
+### Layouts
+
+To edit the base layouts of all pages, edit the `src/layouts/BaseLayout.astro` file.
+
+To edit the layout of a blog article, edit the `src/layouts/BlogPost.astro` file.
+
+### Blog content
+
+To add blog content, insert `.md` files in the `src/content/` directory.
+
+To add images in blog articles, insert a folder in the `src/content/` directory, add both the `.md` and image files into the new folder, and reference the image in your `.md` file.
+
+## Theming
+
+To change the theme colours of the site, edit the `src/styles/app.css` file.
+
+To change the fonts of the site, add your font files into `/public`, add it as a `@font-face` in the `src/styles/app.css` file, as a `fontFamily` in the `tailwind.config.js` file, and apply the new font class to the `body` tag in the `src/layouts/BaseLayout.astro` file.
