@@ -116,9 +116,14 @@
 	}
 	
 	/* Ensure content stays above the gradient */
-	main, header, footer {
+	main, footer {
 		position: relative;
 		z-index: 1;
+	}
+	
+	/* Header keeps its sticky positioning */
+	header {
+		z-index: 40;
 	}
 }
 
